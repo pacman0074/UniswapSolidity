@@ -1,6 +1,6 @@
 const ethers = require('ethers')
 require('dotenv').config();
-const contractAddress = '0xd9140951d8aE6E5F625a02F5908535e16e3af964'
+const contractAddress = '0x987e855776C03A4682639eEb14e65b3089EE6310'
 const daiAddress = '0x6B175474E89094C44Da98b954EedeAC495271d0F'
 const wethAddress = '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2'
 const provider = ethers.getDefaultProvider('http://localhost:8545')
@@ -16,7 +16,7 @@ module.exports = async function(done){
     const singleSwapContract = new ethers.Contract(contractAddress, abiSingleSwap, account ); //récupération du contrat singleSwap déployé 
     const daiContract = new ethers.Contract(daiAddress, abiDai, account);//récupération du contrat Dai sur le mainnet 
     const wethContract = new ethers.Contract(wethAddress, abiWETH, account)
-    const montant = ethers.BigNumber.from('123400000000000000000'); //1000 DAI envoyé
+    const montant = ethers.BigNumber.from('5000000000000000000000'); //1000 DAI envoyé
 
     //account.address approuve (ou authorise) le contrat singleSwap à dépenser un montant défini de DAI
     await daiContract.approve(contractAddress,montant, {from : account.address}); 
